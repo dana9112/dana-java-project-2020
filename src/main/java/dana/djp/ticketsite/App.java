@@ -8,41 +8,63 @@ public class App {
     
     Scanner keyboard = new Scanner(System.in);
     
-    System.out.print("번호: ");
-    int no = keyboard.nextInt();
-    keyboard.nextLine();
+    final int SIZE= 10;
     
-    System.out.print("장르: ");
-    String genre = keyboard.nextLine();
+    int[] no = new int[SIZE];
+    String[] genre = new String[SIZE];
+    String[] name = new String[SIZE];
+    String[] location = new String[SIZE];
+    Date[] startDate = new Date[SIZE];
+    Date[] endDate = new Date[SIZE];
+    int[] runningTime = new int[SIZE];
+    int[] age = new int[SIZE];
     
-    System.out.print("공연명: ");
-    String name = keyboard.nextLine();
+    int count = 0;
+    for (int i = 0; i < SIZE; i++) {
+      count++;
+      
+      System.out.print("번호: ");
+      no[i] = keyboard.nextInt();
+      keyboard.nextLine();
+      
+      System.out.print("장르: ");
+      genre[i] = keyboard.nextLine();
+      
+      System.out.print("공연명: ");
+      name[i] = keyboard.nextLine();
+      
+      System.out.print("장소: ");
+      location[i] = keyboard.nextLine();
+      
+      System.out.print("공연시작: ");
+      startDate[i] = Date.valueOf(keyboard.next());
+      
+      System.out.print("공연종료: ");
+      endDate[i] = Date.valueOf(keyboard.next());
+      
+      System.out.print("러닝타임: ");
+      runningTime[i] = keyboard.nextInt();
+      
+      System.out.print("관람연령: ");
+      age[i] = keyboard.nextInt();
+      keyboard.nextLine();
+      
+      System.out.print("계속 입력하시겠습니까?(Y/n) ");
+      String response = keyboard.nextLine();
+      if (!response.equalsIgnoreCase("y")) 
+        break;
     
-    System.out.print("장소: ");
-    String location = keyboard.nextLine();
-    
-    System.out.print("공연시작: ");
-    Date startDate = Date.valueOf(keyboard.next());
-    
-    System.out.print("공연종료: ");
-    Date endDate = Date.valueOf(keyboard.next());
-    
-    System.out.print("러닝타임: ");
-    int runningTime = keyboard.nextInt();
-    
-    System.out.print("관람연령: ");
-    int age = keyboard.nextInt();
-    
+      System.out.println();
+      
+    }
     System.out.println();
-    keyboard.nextLine();
+
     
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("장르: %s\n", genre);
-    System.out.printf("공연명: %s\n", name);
-    System.out.printf("장소: %s\n", location);
-    System.out.printf("공연기간: %s ~ %s\n", startDate, endDate);
-    System.out.printf("러닝타임: %d 시간\n", runningTime);
-    System.out.printf("관람연령: 만 %d 이상\n", age);
+    for (int i = 0; i < count; i++) {
+      System.out.printf("번호: %d\n장르: %s\n공연명: %s\n장소: %s\n공연기간: %s ~ %s\n%d 시간\n만 %d 이상\n",
+                        no[i], genre[i], name[i], location[i], startDate[i], endDate[i], runningTime[i], age[i]);
+      System.out.println();
+    }
     
     keyboard.close();
     
