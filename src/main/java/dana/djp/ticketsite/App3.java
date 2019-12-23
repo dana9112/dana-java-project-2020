@@ -5,69 +5,43 @@ import java.util.Scanner;
 
 public class App3 {
   public static void main(String[] args) {
-
-    Scanner keyScan = new Scanner(System.in);
-
-    class Booking {
-      int number;
-      String name;
-      String day;
-      String title;
-      String memo;
-      Date date;
-      int viewCount;
-    }
-
-    final int Size = 100;
-    Booking[] plays = new Booking[Size];
-
-    String response;
-
+    
+    Scanner keyboard = new Scanner(System.in);
+    
+    System.out.print("번호: ");
+    int no = keyboard.nextInt();
+    keyboard.nextLine();
+    
+    System.out.print("공연명: ");
+    String name = keyboard.nextLine();
+    
+    System.out.print("관람일시: ");
+    Date viewDate = Date.valueOf(keyboard.next());
+    keyboard.nextLine();
+    
+    System.out.print("제목: ");
+    String title = keyboard.nextLine();
+    
+    System.out.print("내용: ");
+    String content = keyboard.nextLine();
+    
+    Date today = new Date(System.currentTimeMillis());
     int count = 0;
-    for (int i = 0; i < 100; i++ ) {
-      Booking play = new Booking();
-
-      System.out.print("번호: ");
-      play.number = keyScan.nextInt();
-      keyScan.nextLine();
-
-      System.out.print("공연명: ");
-      play.name = keyScan.nextLine();
-
-      System.out.print("관람일시: ");
-      play.day = keyScan.nextLine();
-
-      System.out.print("제목: ");
-      play.title = keyScan.nextLine();
-
-      System.out.print("내용: ");
-      play.memo = keyScan.nextLine();
-
-      play.date = new Date(System.currentTimeMillis());
-      play.viewCount = 0;
-
-      plays[i] = play;
-      count++;
-
-      System.out.println();
-
-      System.out.print("관람후기를 추가로 작성하시겠습니까?(y/n) ");
-      response = keyScan.nextLine();
-      if (!response.equalsIgnoreCase("y")) {
-        break;
-      }
-    }
-
-    keyScan.close();
+    
+    keyboard.close();
     System.out.println();
+    
+    System.out.printf("번호: %d\n", no);
+    System.out.printf("작성일: %s\n", today);
+    System.out.printf("공연명: %s\n", name);
+    System.out.printf("관람일시: %s\n", viewDate);
+    System.out.printf("제목: %s\n", title);
+    System.out.printf("내용: %s\n", content);
+    System.out.printf("조회수: %d\n", count);
+    
 
-    for (int i = 0; i < count; i++) {
-      Booking play = plays[i];
-
-      System.out.printf("번호: %d\n공연명: %s\n관람일시: %s\n제목: %s\n내용: %s\n작성일: %s\n조회수: %d\n", 
-          play.number, play.name, play.day, play.title, play.memo, play.date, play.viewCount);
-
-    }
+    
+    
   }
 }
 
