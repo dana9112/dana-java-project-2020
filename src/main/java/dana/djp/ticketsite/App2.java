@@ -8,20 +8,9 @@ public class App2 {
 
     Scanner keyboard = new Scanner(System.in);
     
-    class Member {
-      int playNumber;
-      String reservationNumber;
-      String ticketSort;
-      Date viewDate;
-      String name;
-      String email;
-      String phone;
-    }
+   
 
-    final int SIZE = 100;
-    Member[] members = new Member[SIZE];
-  
-    int count = 0;
+    
     for (int i = 0; i < SIZE; i++) {
       // 회원정보를 저장할 메모리를 Member 설계도에 따라 만든다. 
       Member member = new Member();

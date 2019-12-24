@@ -19,13 +19,43 @@ public class App {
       int age;
     }
     
-    final int SIZE= 100;
-     
-    Information[] informations = new Information[SIZE];
+    final int INFORMATION_SIZE= 100;
+    Information[] informations = new Information[INFORMATION_SIZE];
+    int informationCount = 0;
     
-    int count = 0;
-    for (int i = 0; i < SIZE; i++) {
-      count++;
+    class Member {
+      int playNumber;
+      String reservationNumber;
+      String ticketSort;
+      Date viewDate;
+      String name;
+      String email;
+      String phone;
+    }
+    
+    final int MEMBER_SIZE = 100;
+    Member[] members = new Member[MEMBER_SIZE];
+    int memberCount = 0;
+    
+    
+    class Review {
+      int no;
+      String name;
+      Date viewDate;
+      String title;
+      String content;
+      Date today;
+      int viewCount;
+    }
+    
+    final int REVIEW_SIZE = 100;
+    Review[] reviews = new Review[REVIEW_SIZE];
+    int reviewCount = 0;
+    
+    
+    
+    for (int i = 0; i < INFORMATION_SIZE; i++) {
+      informationCount++;
       
       Information information = new Information();
       

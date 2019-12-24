@@ -7,21 +7,9 @@ public class App3 {
   public static void main(String[] args) {
 
     Scanner keyboard = new Scanner(System.in);
-    
-    class Review {
-      int no;
-      String name;
-      Date viewDate;
-      String title;
-      String content;
-      Date today;
-      int viewCount;
-    }
-    
-    final int SIZE = 100;
-    Review[] reviews = new Review[SIZE]; 
+  
 
-    int count = 0;
+    
     for (int i = 0; i < SIZE; i++) {  
       Review review = new Review();
       count++;
