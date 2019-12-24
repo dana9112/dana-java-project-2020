@@ -22,7 +22,7 @@ public class App3 {
     Review[] reviews = new Review[SIZE]; 
 
     int count = 0;
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < SIZE; i++) {  
       Review review = new Review();
       count++;
 

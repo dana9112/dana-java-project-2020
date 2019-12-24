@@ -20,7 +20,7 @@ public class App2 {
 
     final int SIZE = 100;
     Member[] members = new Member[SIZE];
-
+  
     int count = 0;
     for (int i = 0; i < SIZE; i++) {
       // 회원정보를 저장할 메모리를 Member 설계도에 따라 만든다. 

@@ -20,7 +20,7 @@ public class App {
     }
     
     final int SIZE= 100;
-    
+     
     Information[] informations = new Information[SIZE];
     
     int count = 0;
