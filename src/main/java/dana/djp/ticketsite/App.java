@@ -8,46 +8,55 @@ public class App {
     
     Scanner keyboard = new Scanner(System.in);
     
-    final int SIZE= 10;
+    class Information {
+      int no;
+      String genre;
+      String name;
+      String location;
+      Date startDate;
+      Date endDate;
+      int runningTime;
+      int age;
+    }
     
-    int[] no = new int[SIZE];
-    String[] genre = new String[SIZE];
-    String[] name = new String[SIZE];
-    String[] location = new String[SIZE];
-    Date[] startDate = new Date[SIZE];
-    Date[] endDate = new Date[SIZE];
-    int[] runningTime = new int[SIZE];
-    int[] age = new int[SIZE];
+    final int SIZE= 100;
+    
+    Information[] informations = new Information[SIZE];
     
     int count = 0;
     for (int i = 0; i < SIZE; i++) {
       count++;
       
+      Information information = new Information();
+      
       System.out.print("번호: ");
-      no[i] = keyboard.nextInt();
+      information.no = keyboard.nextInt();
       keyboard.nextLine();
       
       System.out.print("장르: ");
-      genre[i] = keyboard.nextLine();
+      information.genre = keyboard.nextLine();
       
       System.out.print("공연명: ");
-      name[i] = keyboard.nextLine();
+      information.name = keyboard.nextLine();
       
       System.out.print("장소: ");
-      location[i] = keyboard.nextLine();
+      information.location = keyboard.nextLine();
       
       System.out.print("공연시작: ");
-      startDate[i] = Date.valueOf(keyboard.next());
+      information.startDate = Date.valueOf(keyboard.next());
       
       System.out.print("공연종료: ");
-      endDate[i] = Date.valueOf(keyboard.next());
+      information.endDate = Date.valueOf(keyboard.next());
       
       System.out.print("러닝타임: ");
-      runningTime[i] = keyboard.nextInt();
+      information.runningTime = keyboard.nextInt();
       
       System.out.print("관람연령: ");
-      age[i] = keyboard.nextInt();
+      information.age = keyboard.nextInt();
       keyboard.nextLine();
+      
+      informations[i] = information;
+      
       
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
       String response = keyboard.nextLine();
@@ -61,8 +70,9 @@ public class App {
 
     
     for (int i = 0; i < count; i++) {
+      Information information = informations[i];
       System.out.printf("번호: %d\n장르: %s\n공연명: %s\n장소: %s\n공연기간: %s ~ %s\n%d 시간\n만 %d 이상\n",
-                        no[i], genre[i], name[i], location[i], startDate[i], endDate[i], runningTime[i], age[i]);
+          information.no, information.genre, information.name, information.location, information.startDate, information.endDate, information.runningTime, information.age);
       System.out.println();
     }
     

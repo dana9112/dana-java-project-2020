@@ -7,44 +7,53 @@ public class App2 {
   public static void main(String[] args) {
 
     Scanner keyboard = new Scanner(System.in);
+    
+    class Member {
+      int playNumber;
+      String reservationNumber;
+      String ticketSort;
+      Date viewDate;
+      String name;
+      String email;
+      String phone;
+    }
 
     final int SIZE = 100;
-
-    int[] playNumber = new int[SIZE];
-    String[] reservationNumber = new String[SIZE];
-    String[] ticketSort = new String[SIZE];
-    Date[] viewDate = new Date[SIZE];
-    String[] name = new String[SIZE];
-    String[] email = new String[SIZE];
-    String[] phone = new String[SIZE];
+    Member[] members = new Member[SIZE];
 
     int count = 0;
     for (int i = 0; i < SIZE; i++) {
+      // 회원정보를 저장할 메모리를 Member 설계도에 따라 만든다. 
+      Member member = new Member();
 
       count++;
 
       System.out.print("공연번호: ");
-      playNumber[i] = keyboard.nextInt();
+      member.playNumber = keyboard.nextInt();
       keyboard.nextLine();
 
       System.out.print("예약번호: ");
-      reservationNumber[i] = keyboard.nextLine();
+      member.reservationNumber = keyboard.nextLine();
 
       System.out.print("티켓권종: ");
-      ticketSort[i] = keyboard.nextLine();
+      member.ticketSort = keyboard.nextLine();
 
       System.out.print("관람날짜: ");
-      viewDate[i] = Date.valueOf(keyboard.next());
+      member.viewDate = Date.valueOf(keyboard.next());
       keyboard.nextLine();
 
       System.out.print("이름: ");
-      name[i] = keyboard.nextLine();
+      member.name = keyboard.nextLine();
 
       System.out.print("이메일: ");
-      email[i] = keyboard.nextLine();
+      member.email = keyboard.nextLine();
 
       System.out.print("휴대전화: ");
-      phone[i] = keyboard.nextLine();
+      member.phone = keyboard.nextLine();
+      
+      // 회원정보가 담겨있는 인스턴스 주소를 레퍼런스 배열에 보관한다. 
+      // 나중에 사용할 수 있도록 보관해두는 것임. 
+      members[i] = member;
 
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
       String response = keyboard.nextLine();
@@ -58,8 +67,9 @@ public class App2 {
     System.out.println("---------------------------------");
     
     for (int i = 0; i < count; i++) {
+      Member member = members[i];
       System.out.printf("공연번호: %d\n예약번호: %s\n티켓권종: %s\n관람날짜: %s\n이름: %s\n이메일: %s\n휴대전화: %s\n",
-          playNumber[i], reservationNumber[i], ticketSort[i], viewDate[i], name[i], email[i],phone[i]);
+          member.playNumber, member.reservationNumber, member.ticketSort, member.viewDate, member.name, member.email, member.phone);
       System.out.println();
     }
 
