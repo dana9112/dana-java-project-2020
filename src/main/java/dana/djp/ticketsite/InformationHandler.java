@@ -20,10 +20,10 @@ public class InformationHandler {
   static final int INFORMAITON_SIZE = 100;
   static Information[] informations = new Information[INFORMAITON_SIZE];
   static int informationCount = 0;
-  static Scanner keyboard;
+  public static Scanner keyboard;
   
   
-  static void addInformation() {
+  public static void addInformation() {
     Information information = new Information();
 
     System.out.print("번호: ");
@@ -60,7 +60,7 @@ public class InformationHandler {
     System.out.println("저장되었습니다.");
   }
   
-  static void listInformation() {
+  public static void listInformation() {
     for (int i = 0; i < informationCount; i++) {
       Information infor = informations[i];
       System.out.printf("%d, %s, %s, %s, %s ~ %s, %d, %s, %s",

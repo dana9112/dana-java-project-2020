@@ -17,7 +17,7 @@ public class App {
     String command;
 
     do {
-      System.out.print("\n명령> ");
+      System.out.print("\n명령> "); 
       command = keyboard.nextLine();
 
       switch (command) {
