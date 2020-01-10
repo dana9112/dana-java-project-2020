@@ -1,21 +1,11 @@
-package dana.djp.ticketsite;
+package dana.djp.ticketsite.handler;
 
 import java.sql.Date;
 import java.util.Scanner;
+import dana.djp.ticketsite.domain.Information;
 
 public class InformationHandler {
   
-  static class Information {
-    int no;
-    String genre;
-    String name;
-    String location;
-    Date startDate;
-    Date endDate;
-    int runnigTime;
-    String age;
-    String introduce;
-  }
 
   static final int INFORMAITON_SIZE = 100;
   static Information[] informations = new Information[INFORMAITON_SIZE];

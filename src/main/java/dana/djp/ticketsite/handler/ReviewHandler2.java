@@ -1,19 +1,10 @@
-package dana.djp.ticketsite;
+package dana.djp.ticketsite.handler;
 
 import java.sql.Date;
 import java.util.Scanner;
+import dana.djp.ticketsite.domain.Review;
 
-public class ReviewHandler {
-
-  static class Review {
-    int no;
-    String name;
-    Date viewDate;
-    String title;
-    String content;
-    Date today;
-    int viewCount;
-  }
+public class ReviewHandler2 {
 
   static final int REVIEW_SIZE = 100;
   static Review[] reviews = new Review[REVIEW_SIZE];

@@ -1,20 +1,12 @@
-package dana.djp.ticketsite;
+package dana.djp.ticketsite.handler;
 
 import java.sql.Date;
 import java.util.Scanner;
+import dana.djp.ticketsite.domain.Member;
+
 
 public class MemberHandler {
 
-  static class Member {
-    int playNumber;
-    String reservationNumber;
-    String ticketSort;
-    Date viewDate;
-    String name;
-    String email;
-    String phone;
-  }
-  
   
   static final int MEMBER_SIZE = 100;
   static Member[] members = new Member[MEMBER_SIZE];
@@ -22,7 +14,7 @@ public class MemberHandler {
   public static Scanner keyboard;
   
   public static void addMember() {
-    Member member = new Member();
+    Member member = new Member();   
 
     System.out.print("공연번호: ");
     member.playNumber = keyboard.nextInt();

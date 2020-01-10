@@ -1,6 +1,11 @@
 package dana.djp.ticketsite;
 
 import java.util.Scanner;
+import dana.djp.ticketsite.handler.InformationHandler;
+import dana.djp.ticketsite.handler.MemberHandler;
+import dana.djp.ticketsite.handler.ReviewHandler;
+import dana.djp.ticketsite.handler.ReviewHandler2;
+
 
 public class App {
 
@@ -38,6 +43,13 @@ public class App {
           break;
         case "/review/list" :
           ReviewHandler.listReview();
+          break;
+          
+        case "/review2/add" :
+          ReviewHandler2.addReview();
+          break;
+        case "/review2/list" :
+          ReviewHandler2.listReview();
           break;
 
         default:
