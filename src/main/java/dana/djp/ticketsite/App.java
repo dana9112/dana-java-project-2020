@@ -49,7 +49,7 @@ public class App {
           memberTable.detailMember();
           break;
         case "/review/add" :
-          reviewTable.addReview();
+          reviewTable.addReview();       
           break;
         case "/review/list" :
           reviewTable.listReview();
