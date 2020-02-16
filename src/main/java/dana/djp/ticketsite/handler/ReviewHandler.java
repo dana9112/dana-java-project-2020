@@ -47,5 +47,31 @@ public class ReviewHandler {
     }
   }
   
+  public void detailReview() {
+    System.out.println("번호? ");
+    int no = keyboard.nextInt();
+    keyboard.nextLine();
+    
+    Review review = null;
+    for (int i = 0; i < reviewCount; i++) {
+      if (reviews[i].no == no) {
+        review = reviews[i];
+        break;
+      }
+    }
+    
+    if(review == null) {
+      System.out.println("게시물 번호가 유효하지 않습니다.");
+      return;
+    }
+        
+    System.out.printf("번호: %d\n", review.no);
+    System.out.printf("공연명: %s\n", review.name);
+    System.out.printf("관람일시: %s\n", review.viewDate);
+    System.out.printf("제목: %s\n", review.title);
+    System.out.printf("내용: %s\n", review.content);
+    System.out.printf("등록일: %s\n", review.today);
+    
+  }
   
 }
