@@ -81,7 +81,7 @@ public class InformationHandler {
     information.introduce = input.nextLine();
 
     informations[informationCount++] = information;
-    System.out.println("저장되었습니다.");
+    System.out.println("저장되었습니다.");       
   }
 
   public void listInformation() {
