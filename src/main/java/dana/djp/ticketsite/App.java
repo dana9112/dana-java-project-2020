@@ -47,7 +47,7 @@ public class App {
           break;
         case "/member/detail" :
           memberTable.detailMember();
-          break;
+          break;       
         case "/review/add" :
           reviewTable.addReview();       
           break;
