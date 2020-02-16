@@ -1,41 +1,48 @@
-# 15 - 인스턴스 연산자와 메서드
+# 16 - UI 코드와 데이터 처리 코드를 분리하기
 
 ## 학습 목표
 
-- 메서드를 활용하여 인스턴스 값을 다루는 연산자를 정의할 수 있다.
-- 캡슐화의 의미를 이해하고, 셋터/겟터를 만들 수 있다.
+- 캡슐화 기법을 이용하여 데이터 처리 코드를 별개의 클래스로 분리할 수 있다.
+- 배열 복제를 통해 배열의 크기를 늘릴 수 있다.
+- 역할에 따라 클래스를 분리하는 방법과 이점을 이해한다.  
 
 ## 실습 소스 및 결과
 
-- src/main/java/dana/djp/ticketsite/domain/Information.java 변경
-- src/main/java/dana/djp/ticketsite/domain/Member.java 변경
-- src/main/java/dana/djp/ticketsite/domain/Review.java 변경
+- src/main/java/dana/djp/ticketsite/handler/InformationList.java 추가
+- src/main/java/dana/djp/ticketsite/handler/MemberList.java 추가
+- src/main/java/dana/djp/ticketsite/handler/ReviewList.java 추가
 - src/main/java/dana/djp/ticketsite/handler/InformationHandler.java 변경
 - src/main/java/dana/djp/ticketsite/handler/MemberHandler.java 변경
 - src/main/java/dana/djp/ticketsite/handler/ReviewHandler.java 변경
 
 ## 실습
 
-### 작업1) Information 인스턴스의 값을 다룰 연산자를 정의하라.
+### 작업1) InformationHandler에서 데이터 처리 코드를 분리하라.
 
-- Information.java
-    - 인스턴스 변수(필드)를 비공개(private)로 전환한다.
-    - 값을 설정하고 리턴해주는 세터/게터를 정의한다.
+- InformationList.java
+    - `InformationHandler`에서 데이터 처리 코드를 이 클래스로 옮긴다.
+    - 공연정보 데이터 배열을 리턴하는 toArray() 메서드를 정의한다.
+    - 공연정보 데이터를 저장하는 add() 메서드를 정의한다.
+    - 기본 생성자와 배열의 초기 크기를 설정하는 생성자를 정의한다.  
 - InformationHandler.java
-    - Information 인스턴스에 값을 넣고 꺼낼 때 세터/겟터를 사용한다.
+    - `InformationList` 클래스를 사용하여 데이터를 처리한다.
 
-### 작업2) Member 인스턴스의 값을 다룰 연산자를 정의하라.
+### 작업2) MemberHandler에서 데이터 처리 코드를 분리하라.
 
-- Member.java
-    - 인스턴스 변수(필드)를 비공개(private)로 전환한다.
-    - 값을 설정하고 리턴해주는 세터/게터를 정의한다.
+- MemberList.java
+    - `MemberHandler`에서 데이터 처리 코드를 이 클래스로 옮긴다.
+    - 회원 데이터 배열을 리턴하는 toArray() 메서드를 정의한다.
+    - 회원 데이터를 저장하는 add() 메서드를 정의한다.
+    - 기본 생성자와 배열의 초기 크기를 설정하는 생성자를 정의한다.  
 - MemberHandler.java
-    - Member 인스턴스에 값을 넣고 꺼낼 때 세터/겟터를 사용한다.
+    - `MemberList` 클래스를 사용하여 데이터를 처리한다.
 
-### 작업3) Review 인스턴스의 값을 다룰 연산자를 정의하라.
+### 작업3) ReviewHandler에서 데이터 처리 코드를 분리하라.
 
-- Review.java
-    - 인스턴스 변수(필드)를 비공개(private)로 전환한다.
-    - 값을 설정하고 리턴해주는 세터/게터를 정의한다.
+- ReviewList.java
+    - `ReviewHandler`에서 데이터 처리 코드를 이 클래스로 옮긴다.
+    - 게시물 데이터 배열을 리턴하는 toArray() 메서드를 정의한다.
+    - 게시물 데이터를 저장하는 add() 메서드를 정의한다.
+    - 기본 생성자와 배열의 초기 크기를 설정하는 생성자를 정의한다.  
 - ReviewHandler.java
-    - Review 인스턴스에 값을 넣고 꺼낼 때 세터/겟터를 사용한다.
+    - `ReviewList` 클래스를 사용하여 데이터를 처리한다.

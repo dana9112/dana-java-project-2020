@@ -6,26 +6,18 @@ import dana.djp.ticketsite.domain.Review;
 
 public class ReviewHandler {
   
-  Review[] reviews;
-  int reviewCount = 0;
+  ReviewList reviewList;
 
   Scanner input;
   
-  static final int REVIEW_SIZE = 100;
-
-  
   public ReviewHandler(Scanner input) {
     this.input = input;
-    this.reviews = new Review[REVIEW_SIZE];
+    reviewList = new ReviewList();
   }
   
   public ReviewHandler(Scanner input, int capacity) {
     this.input = input;
-    if (capacity < REVIEW_SIZE || capacity < 10000) {
-      this.reviews = new Review[REVIEW_SIZE];
-    } else {
-      this.reviews = new Review[capacity];
-    }
+    reviewList = new ReviewList(capacity);
   }
   
   
@@ -51,13 +43,13 @@ public class ReviewHandler {
     review.setToday(new Date(System.currentTimeMillis()));
     review.setViewCount(0);
 
-    reviews[reviewCount++] = review;
+    reviewList.add(review);
     System.out.println("저장되었습니다.");
   }
 
   public void listReview() {
-    for (int i = 0; i < reviewCount; i++) {
-      Review r = reviews[i];
+    Review[] reviews = reviewList.toArray();
+    for (Review r : reviews) {
       System.out.printf("%d, %s, %s, %s\n", 
           r.getNo(), r.getName(), r.getViewDate(), r.getTitle(), r.getContent(), r.getToday(), r.getViewCount());
     }
@@ -68,14 +60,7 @@ public class ReviewHandler {
     int no = input.nextInt();
     input.nextLine();
     
-    Review review = null;
-    for (int i = 0; i < reviewCount; i++) {
-      if (reviews[i].no == no) {
-        review = reviews[i];
-        break;
-      }
-    }
-    
+    Review review = reviewList.get(no);
     if(review == null) {
       System.out.println("게시물 번호가 유효하지 않습니다.");
       return;
