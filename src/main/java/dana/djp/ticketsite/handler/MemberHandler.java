@@ -37,26 +37,26 @@ public class MemberHandler {
     Member member = new Member();   
 
     System.out.print("공연번호: ");
-    member.no = input.nextInt();
+    member.setNo(input.nextInt());
     input.nextLine(); // 줄바꿈 기호 제거용
 
     System.out.print("예약번호: ");
-    member.reservationNumber = input.nextLine();
+    member.setReservationNumber(input.nextLine());
 
     System.out.print("티켓권종: ");
-    member.ticketSort = input.nextLine();
+    member.setTicketSort(input.nextLine());
 
     System.out.print("관람일시: ");
-    member.viewDate = Date.valueOf(input.nextLine());
+    member.setViewDate(Date.valueOf(input.nextLine()));
 
     System.out.print("이름: ");
-    member.name = input.nextLine();
+    member.setName(input.nextLine());
 
     System.out.print("이메일: ");
-    member.email = input.nextLine();
+    member.setEmail(input.nextLine());
 
     System.out.print("휴대전화: ");
-    member.phone = input.nextLine();
+    member.setPhone(input.nextLine());
 
     members[memberCount++] = member;
     System.out.println("저장되었습니다.");
@@ -67,8 +67,8 @@ public class MemberHandler {
     for (int i = 0; i < this.memberCount; i++) {
       Member m = this.members[i];
       System.out.printf("%d, %s, %s, %s, %s, %s, %s\n", 
-          m.no, m.reservationNumber, m.ticketSort, m.viewDate, m.name, m.email, 
-          m.phone);
+          m.getNo(), m.getReservationNumber(), m.getTicketSort(), m.getViewDate(), m.getName(), m.getEmail(), 
+          m.getPhone());
     }
   }
     public void detailMember() {
@@ -88,13 +88,13 @@ public class MemberHandler {
         return;
       }
       
-      System.out.printf("공연번호: %d\n", member.no);
-      System.out.printf("예약번호: %s\n" , member.reservationNumber);
-      System.out.printf("티켓권종: %s\n", member.ticketSort);
-      System.out.printf("관람일시: %s\n", member.viewDate);
-      System.out.printf("이름: %s\n", member.name);
-      System.out.printf("이메일: %s\n", member.email);
-      System.out.printf("휴대전화: %s\n", member.phone);
+      System.out.printf("공연번호: %d\n", member.getNo());
+      System.out.printf("예약번호: %s\n" , member.getReservationNumber());
+      System.out.printf("티켓권종: %s\n", member.getTicketSort());
+      System.out.printf("관람일시: %s\n", member.getViewDate());
+      System.out.printf("이름: %s\n", member.getName());
+      System.out.printf("이메일: %s\n", member.getEmail());
+      System.out.printf("휴대전화: %s\n", member.getPhone());
     }
   
   

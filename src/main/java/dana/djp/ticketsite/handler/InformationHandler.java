@@ -52,33 +52,33 @@ public class InformationHandler {
     Information information = new Information();
 
     System.out.print("번호: ");
-    information.no = input.nextInt();
+    information.setNo(input.nextInt());
     input.nextLine();
     
     System.out.print("장르: ");
-    information.genre = input.nextLine();
+    information.setGenre(input.nextLine());
 
     System.out.print("공연명: ");
-    information.name = input.nextLine();
+    information.setName(input.nextLine());
 
     System.out.print("장소: ");
-    information.location = input.nextLine();
+    information.setLocation(input.nextLine());
 
     System.out.print("공연시작: ");
-    information.startDate = Date.valueOf(input.next());
+    information.setStartDate(Date.valueOf(input.next()));
 
     System.out.print("공연종료: ");
-    information.endDate = Date.valueOf(input.next());
+    information.setEndDate(Date.valueOf(input.next()));
 
     System.out.print("러닝타임: ");
-    information.runnigTime = input.nextInt();
+    information.setRunnigTime(input.nextInt());
     input.nextLine();
 
     System.out.print("관람연령: ");
-    information.age = input.nextLine();
+    information.setAge(input.nextLine());
 
     System.out.print("공연소개: ");
-    information.introduce = input.nextLine();
+    information.setIntroduce(input.nextLine());
 
     informations[informationCount++] = information;
     System.out.println("저장되었습니다.");       
@@ -88,9 +88,9 @@ public class InformationHandler {
     for (int i = 0; i < this.informationCount; i++) {
       Information infor = this.informations[i];
       System.out.printf("%d, %s, %s, %s, %s ~ %s, %d, %s, %s\n",
-          infor.no, infor.genre, infor.name, infor.location, 
-          infor.startDate, infor.endDate, infor.runnigTime, infor.age,
-          infor.introduce);
+          infor.getNo(), infor.getGenre(), infor.getName(), infor.getLocation(), 
+          infor.getStartDate(), infor.getEndDate(), infor.getRunnigTime(), infor.getAge(),
+          infor.getIntroduce());
     }
   }
 
@@ -112,14 +112,14 @@ public class InformationHandler {
       return;
     }
 
-    System.out.printf("번호: %d\n", information.no);
-    System.out.printf("장르: %s\n", information.genre);
-    System.out.printf("공연명: %s\n", information.name);
-    System.out.printf("장소: %s\n", information.location);
-    System.out.printf("공연기간: %s ~ %s\n", information.startDate, information.endDate);
-    System.out.printf("러닝타임: %d\n", information.runnigTime);
-    System.out.printf("관람연령: %s\n", information.age);
-    System.out.printf("공연소개: %s\n", information.introduce);
+    System.out.printf("번호: %d\n", information.getNo());
+    System.out.printf("장르: %s\n", information.getGenre());
+    System.out.printf("공연명: %s\n", information.getName());
+    System.out.printf("장소: %s\n", information.getLocation());
+    System.out.printf("공연기간: %s ~ %s\n", information.getStartDate(), information.getEndDate());
+    System.out.printf("러닝타임: %d\n", information.getRunnigTime());
+    System.out.printf("관람연령: %s\n", information.getAge());
+    System.out.printf("공연소개: %s\n", information.getIntroduce());
 
   }
 

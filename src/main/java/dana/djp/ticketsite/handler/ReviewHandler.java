@@ -33,23 +33,23 @@ public class ReviewHandler {
     Review review = new Review();
 
     System.out.print("번호: ");
-    review.no = input.nextInt();
+    review.setNo(input.nextInt());
     input.nextLine(); // 줄바꿈 기호 제거용
 
     System.out.print("공연명: ");
-    review.name = input.nextLine();
+    review.setName(input.nextLine());
 
     System.out.print("관람일시: ");
-    review.viewDate = Date.valueOf(input.nextLine());
+    review.setViewDate(Date.valueOf(input.nextLine()));
 
     System.out.print("제목: ");
-    review.title = input.nextLine();
+    review.setTitle(input.nextLine());
 
     System.out.print("내용: ");
-    review.content = input.nextLine();
+    review.setContent(input.nextLine());
 
-    review.today = new Date(System.currentTimeMillis());
-    review.viewCount = 0;
+    review.setToday(new Date(System.currentTimeMillis()));
+    review.setViewCount(0);
 
     reviews[reviewCount++] = review;
     System.out.println("저장되었습니다.");
@@ -59,7 +59,7 @@ public class ReviewHandler {
     for (int i = 0; i < reviewCount; i++) {
       Review r = reviews[i];
       System.out.printf("%d, %s, %s, %s\n", 
-          r.no, r.name, r.viewDate, r.title, r.content, r.today, r.viewCount);
+          r.getNo(), r.getName(), r.getViewDate(), r.getTitle(), r.getContent(), r.getToday(), r.getViewCount());
     }
   }
   
@@ -81,12 +81,12 @@ public class ReviewHandler {
       return;
     }
         
-    System.out.printf("번호: %d\n", review.no);
-    System.out.printf("공연명: %s\n", review.name);
-    System.out.printf("관람일시: %s\n", review.viewDate);
-    System.out.printf("제목: %s\n", review.title);
-    System.out.printf("내용: %s\n", review.content);
-    System.out.printf("등록일: %s\n", review.today);
+    System.out.printf("번호: %d\n", review.getNo());
+    System.out.printf("공연명: %s\n", review.getName());
+    System.out.printf("관람일시: %s\n", review.getViewDate());
+    System.out.printf("제목: %s\n", review.getTitle());
+    System.out.printf("내용: %s\n", review.getContent());
+    System.out.printf("등록일: %s\n", review.getToday());
     
   }
   
