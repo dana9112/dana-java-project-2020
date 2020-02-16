@@ -56,7 +56,7 @@ public class App {
           break;
         case "/review/detail" :
           reviewTable.detailReview();
-          break;
+          break;   
         default:
           if (!command.equalsIgnoreCase("quit")) {
             System.out.println("실행할 수 없는 명령입니다.");
