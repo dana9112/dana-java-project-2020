@@ -87,7 +87,7 @@ public class InformationHandler {
     System.out.printf("러닝타임: %d\n", information.runnigTime);
     System.out.printf("관람연령: %s\n", information.age);
     System.out.printf("공연소개: %s\n", information.introduce);
-    
+       
   }
   
 }
