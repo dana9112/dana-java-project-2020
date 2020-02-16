@@ -4,7 +4,6 @@ import java.util.Scanner;
 import dana.djp.ticketsite.handler.InformationHandler;
 import dana.djp.ticketsite.handler.MemberHandler;
 import dana.djp.ticketsite.handler.ReviewHandler;
-import dana.djp.ticketsite.handler.ReviewHandler2;
 
 
 public class App {
@@ -18,7 +17,12 @@ public class App {
     InformationHandler.keyboard = keyboard;
     MemberHandler.keyboard = keyboard;
     ReviewHandler.keyboard = keyboard;
-
+    
+    
+    //메서드가 사용할 메모리만 게시판마다 따로 생성한다.
+    InformationHandler informationTable = new InformationHandler();
+    MemberHandler memberTable = new MemberHandler();
+    ReviewHandler reviewTable = new ReviewHandler();
     String command;
 
     do {
@@ -27,31 +31,32 @@ public class App {
 
       switch (command) {
         case "/information/add":
-          InformationHandler.addInformation();
+          informationTable.addInformation();
           break;
         case "/information/list":
-          InformationHandler.listInformation();
+          informationTable.listInformation();
+          break;
+        case "/information/detail":
+          informationTable.detailInformation();
           break;
         case "/member/add" :
-          MemberHandler.addMember();
+          memberTable.addMember();
           break;
         case "/member/list" :
-          MemberHandler.listMember();
+          memberTable.listMember();
+          break;
+        case "/member/detail" :
+          memberTable.detailMember();
           break;
         case "/review/add" :
-          ReviewHandler.addReview();
+          reviewTable.addReview();
           break;
         case "/review/list" :
-          ReviewHandler.listReview();
+          reviewTable.listReview();
           break;
-          
-        case "/review2/add" :
-          ReviewHandler2.addReview();
+        case "/review/detail" :
+          reviewTable.detailReview();
           break;
-        case "/review2/list" :
-          ReviewHandler2.listReview();
-          break;
-
         default:
           if (!command.equalsIgnoreCase("quit")) {
             System.out.println("실행할 수 없는 명령입니다.");
