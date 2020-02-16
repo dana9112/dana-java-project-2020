@@ -7,36 +7,56 @@ import dana.djp.ticketsite.domain.Member;
 
 public class MemberHandler {
 
-  Member[] members = new Member[MEMBER_SIZE];
+  Member[] members;
   int memberCount = 0;
   
+  Scanner input;
+
+  
   static final int MEMBER_SIZE = 100;
-  public static Scanner keyboard;
+  
+  
+  public MemberHandler(Scanner input) {
+    this.input = input;
+    this.members = new Member[MEMBER_SIZE];
+  }
+  
+  
+  public MemberHandler(Scanner input, int capacity) {
+    this.input = input;
+    if (capacity < MEMBER_SIZE || capacity > 10000) {
+      this.members = new Member[MEMBER_SIZE];
+    } else {
+      this.members = new Member[capacity];
+    }
+      
+  }
+  
   
   public void addMember() {
     Member member = new Member();   
 
     System.out.print("공연번호: ");
-    member.no = keyboard.nextInt();
-    keyboard.nextLine(); // 줄바꿈 기호 제거용
+    member.no = input.nextInt();
+    input.nextLine(); // 줄바꿈 기호 제거용
 
     System.out.print("예약번호: ");
-    member.reservationNumber = keyboard.nextLine();
+    member.reservationNumber = input.nextLine();
 
     System.out.print("티켓권종: ");
-    member.ticketSort = keyboard.nextLine();
+    member.ticketSort = input.nextLine();
 
     System.out.print("관람일시: ");
-    member.viewDate = Date.valueOf(keyboard.nextLine());
+    member.viewDate = Date.valueOf(input.nextLine());
 
     System.out.print("이름: ");
-    member.name = keyboard.nextLine();
+    member.name = input.nextLine();
 
     System.out.print("이메일: ");
-    member.email = keyboard.nextLine();
+    member.email = input.nextLine();
 
     System.out.print("휴대전화: ");
-    member.phone = keyboard.nextLine();
+    member.phone = input.nextLine();
 
     members[memberCount++] = member;
     System.out.println("저장되었습니다.");
@@ -53,8 +73,8 @@ public class MemberHandler {
   }
     public void detailMember() {
       System.out.print("공연번호? " );
-      int no = keyboard.nextInt();
-      keyboard.nextLine();
+      int no = input.nextInt();
+      input.nextLine();
       
       Member member = null;
       for (int i = 0; i < this.memberCount; i++) {

@@ -6,31 +6,47 @@ import dana.djp.ticketsite.domain.Review;
 
 public class ReviewHandler {
   
-  Review[] reviews = new Review[REVIEW_SIZE];
+  Review[] reviews;
   int reviewCount = 0;
 
+  Scanner input;
   
   static final int REVIEW_SIZE = 100;
-  public static Scanner keyboard;
 
+  
+  public ReviewHandler(Scanner input) {
+    this.input = input;
+    this.reviews = new Review[REVIEW_SIZE];
+  }
+  
+  public ReviewHandler(Scanner input, int capacity) {
+    this.input = input;
+    if (capacity < REVIEW_SIZE || capacity < 10000) {
+      this.reviews = new Review[REVIEW_SIZE];
+    } else {
+      this.reviews = new Review[capacity];
+    }
+  }
+  
+  
   public void addReview() {
     Review review = new Review();
 
     System.out.print("번호: ");
-    review.no = keyboard.nextInt();
-    keyboard.nextLine(); // 줄바꿈 기호 제거용
+    review.no = input.nextInt();
+    input.nextLine(); // 줄바꿈 기호 제거용
 
     System.out.print("공연명: ");
-    review.name = keyboard.nextLine();
+    review.name = input.nextLine();
 
     System.out.print("관람일시: ");
-    review.viewDate = Date.valueOf(keyboard.nextLine());
+    review.viewDate = Date.valueOf(input.nextLine());
 
     System.out.print("제목: ");
-    review.title = keyboard.nextLine();
+    review.title = input.nextLine();
 
     System.out.print("내용: ");
-    review.title = keyboard.nextLine();
+    review.content = input.nextLine();
 
     review.today = new Date(System.currentTimeMillis());
     review.viewCount = 0;
@@ -49,8 +65,8 @@ public class ReviewHandler {
   
   public void detailReview() {
     System.out.println("번호? ");
-    int no = keyboard.nextInt();
-    keyboard.nextLine();
+    int no = input.nextInt();
+    input.nextLine();
     
     Review review = null;
     for (int i = 0; i < reviewCount; i++) {

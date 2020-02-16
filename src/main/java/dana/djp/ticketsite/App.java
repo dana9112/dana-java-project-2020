@@ -12,17 +12,11 @@ public class App {
   
   public static void main(String[] args) {
     
-    // Handler의 메서드를 사용하기 전에
-    // 그 메서드가 작업할 때 사용할 키보드 객체를 설정해줘야 한다. 
-    InformationHandler.keyboard = keyboard;
-    MemberHandler.keyboard = keyboard;
-    ReviewHandler.keyboard = keyboard;
-    
     
     //메서드가 사용할 메모리만 게시판마다 따로 생성한다.
-    InformationHandler informationTable = new InformationHandler();
-    MemberHandler memberTable = new MemberHandler();
-    ReviewHandler reviewTable = new ReviewHandler();
+    InformationHandler informationTable = new InformationHandler(keyboard);
+    MemberHandler memberTable = new MemberHandler(keyboard);
+    ReviewHandler reviewTable = new ReviewHandler(keyboard);
     String command;
 
     do {
