@@ -6,26 +6,26 @@ import dana.djp.ticketsite.domain.Information;
 
 public class InformationHandler {
 
-  InformationList informationList;
+  ArrayList informationList;
   Scanner input;
 
   public InformationHandler(Scanner input) {
     this.input = input;
-    informationList = new InformationList();
+    informationList = new ArrayList();
   }
-  
+
   public InformationHandler(Scanner input, int capacity) {
     this.input = input;
-    informationList = new InformationList(capacity);
+    informationList = new ArrayList(capacity);
   }
-  
+
   public void addInformation() {
     Information information = new Information();
 
     System.out.print("번호: ");
     information.setNo(input.nextInt());
     input.nextLine();
-    
+
     System.out.print("장르: ");
     information.setGenre(input.nextLine());
 
@@ -52,26 +52,26 @@ public class InformationHandler {
     information.setIntroduce(input.nextLine());
 
     informationList.add(information);
-    System.out.println("저장되었습니다.");       
+    System.out.println("저장되었습니다.");
   }
 
   public void listInformation() {
-    Information[] informations = informationList.toArray();
-    for (Information infor : informations) {
-      System.out.printf("%d, %s, %s, %s, %s ~ %s, %d, %s, %s\n",
-          infor.getNo(), infor.getGenre(), infor.getName(), infor.getLocation(), 
-          infor.getStartDate(), infor.getEndDate(), infor.getRunnigTime(), infor.getAge(),
-          infor.getIntroduce());
+    Object[] arr = informationList.toArray();
+    for (Object obj : arr) {
+      Information infor = (Information) obj;
+      System.out.printf("%d, %s, %s, %s, %s ~ %s, %d, %s, %s\n", infor.getNo(), infor.getGenre(),
+          infor.getName(), infor.getLocation(), infor.getStartDate(), infor.getEndDate(),
+          infor.getRunnigTime(), infor.getAge(), infor.getIntroduce());
     }
   }
 
   public void detailInformation() {
-    System.out.print("번호? " );
-    int no = input.nextInt();
+    System.out.print("게시물 인덱스? ");
+    int idx = input.nextInt();
     input.nextLine();
-    
-    Information information = informationList.get(no);
-    if(information == null) {
+
+    Information information = (Information) this.informationList.get(idx);
+    if (information == null) {
       System.out.println("게시물 번호가 유효하지 않습니다.");
       return;
     }

@@ -7,27 +7,27 @@ import dana.djp.ticketsite.domain.Member;
 
 public class MemberHandler {
 
-  MemberList memberList;
+  ArrayList memberList;
   Scanner input;
 
-  
+
   static final int MEMBER_SIZE = 100;
-  
-  
+
+
   public MemberHandler(Scanner input) {
     this.input = input;
-    memberList = new MemberList();
+    memberList = new ArrayList();
   }
-  
-  
+
+
   public MemberHandler(Scanner input, int capacity) {
     this.input = input;
-    memberList = new MemberList(capacity);
+    memberList = new ArrayList(capacity);
   }
-  
-  
+
+
   public void addMember() {
-    Member member = new Member();   
+    Member member = new Member();
 
     System.out.print("공연번호: ");
     member.setNo(input.nextInt());
@@ -51,39 +51,40 @@ public class MemberHandler {
     System.out.print("휴대전화: ");
     member.setPhone(input.nextLine());
 
-    memberList.add(member);;
+    memberList.add(member);
     System.out.println("저장되었습니다.");
   }
-  
-    
+
+
   public void listMember() {
-    Member[] members = memberList.toArray();
-    for (Member m : members) {
-      System.out.printf("%d, %s, %s, %s, %s, %s, %s\n", 
-          m.getNo(), m.getReservationNumber(), m.getTicketSort(), m.getViewDate(), m.getName(), m.getEmail(), 
-          m.getPhone());
+    Object[] arr = memberList.toArray();
+    for (Object obj : arr) {
+      Member m = (Member) obj;
+      System.out.printf("%d, %s, %s, %s, %s, %s, %s\n", m.getNo(), m.getReservationNumber(),
+          m.getTicketSort(), m.getViewDate(), m.getName(), m.getEmail(), m.getPhone());
     }
   }
-    public void detailMember() {
-      System.out.print("공연번호? " );
-      int no = input.nextInt();
-      input.nextLine();
-      
-      Member member = memberList.get(no);
-      if (member == null) {
-        System.out.println("게시물 번호가 유효하지 않습니다.");
-        return;
-      }
-      
-      System.out.printf("공연번호: %d\n", member.getNo());
-      System.out.printf("예약번호: %s\n" , member.getReservationNumber());
-      System.out.printf("티켓권종: %s\n", member.getTicketSort());
-      System.out.printf("관람일시: %s\n", member.getViewDate());
-      System.out.printf("이름: %s\n", member.getName());
-      System.out.printf("이메일: %s\n", member.getEmail());
-      System.out.printf("휴대전화: %s\n", member.getPhone());
+
+  public void detailMember() {
+    System.out.print("공연번호? ");
+    int idx = input.nextInt();
+    input.nextLine();
+
+    Member member = (Member) this.memberList.get(idx);
+    if (member == null) {
+      System.out.println("게시물 번호가 유효하지 않습니다.");
+      return;
     }
-  
-  
-  
+
+    System.out.printf("공연번호: %d\n", member.getNo());
+    System.out.printf("예약번호: %s\n", member.getReservationNumber());
+    System.out.printf("티켓권종: %s\n", member.getTicketSort());
+    System.out.printf("관람일시: %s\n", member.getViewDate());
+    System.out.printf("이름: %s\n", member.getName());
+    System.out.printf("이메일: %s\n", member.getEmail());
+    System.out.printf("휴대전화: %s\n", member.getPhone());
+  }
+
+
+
 }

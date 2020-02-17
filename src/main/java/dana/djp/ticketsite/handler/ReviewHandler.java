@@ -5,22 +5,22 @@ import java.util.Scanner;
 import dana.djp.ticketsite.domain.Review;
 
 public class ReviewHandler {
-  
-  ReviewList reviewList;
+
+  ArrayList reviewList;
 
   Scanner input;
-  
+
   public ReviewHandler(Scanner input) {
     this.input = input;
-    reviewList = new ReviewList();
+    reviewList = new ArrayList();
   }
-  
+
   public ReviewHandler(Scanner input, int capacity) {
     this.input = input;
-    reviewList = new ReviewList(capacity);
+    reviewList = new ArrayList(capacity);
   }
-  
-  
+
+
   public void addReview() {
     Review review = new Review();
 
@@ -48,31 +48,32 @@ public class ReviewHandler {
   }
 
   public void listReview() {
-    Review[] reviews = reviewList.toArray();
-    for (Review r : reviews) {
-      System.out.printf("%d, %s, %s, %s\n", 
-          r.getNo(), r.getName(), r.getViewDate(), r.getTitle(), r.getContent(), r.getToday(), r.getViewCount());
+    Object[] arr = reviewList.toArray();
+    for (Object obj : arr) {
+      Review r = (Review) obj;
+      System.out.printf("%d, %s, %s, %s\n", r.getNo(), r.getName(), r.getViewDate(), r.getTitle(),
+          r.getContent(), r.getToday(), r.getViewCount());
     }
   }
-  
+
   public void detailReview() {
     System.out.println("번호? ");
-    int no = input.nextInt();
+    int idx = input.nextInt();
     input.nextLine();
-    
-    Review review = reviewList.get(no);
-    if(review == null) {
+
+    Review review = (Review) this.reviewList.get(idx);
+    if (review == null) {
       System.out.println("게시물 번호가 유효하지 않습니다.");
       return;
     }
-        
+
     System.out.printf("번호: %d\n", review.getNo());
     System.out.printf("공연명: %s\n", review.getName());
     System.out.printf("관람일시: %s\n", review.getViewDate());
     System.out.printf("제목: %s\n", review.getTitle());
     System.out.printf("내용: %s\n", review.getContent());
     System.out.printf("등록일: %s\n", review.getToday());
-    
+
   }
-  
+
 }
