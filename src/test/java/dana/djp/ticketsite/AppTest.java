@@ -4,6 +4,7 @@
 package dana.djp.ticketsite;
 
 import org.junit.Test;
+import dana.djp.lms.App;
 import static org.junit.Assert.*;
 
 public class AppTest {

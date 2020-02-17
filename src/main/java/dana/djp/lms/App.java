@@ -1,9 +1,9 @@
-package dana.djp.ticketsite;
+package dana.djp.lms;
 
 import java.util.Scanner;
-import dana.djp.ticketsite.handler.InformationHandler;
-import dana.djp.ticketsite.handler.MemberHandler;
-import dana.djp.ticketsite.handler.ReviewHandler;
+import dana.djp.lms.handler.InformationHandler;
+import dana.djp.lms.handler.MemberHandler;
+import dana.djp.lms.handler.ReviewHandler;
 
 
 public class App {

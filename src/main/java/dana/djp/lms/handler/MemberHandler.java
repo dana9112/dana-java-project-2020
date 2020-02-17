@@ -1,13 +1,14 @@
-package dana.djp.ticketsite.handler;
+package dana.djp.lms.handler;
 
 import java.sql.Date;
 import java.util.Scanner;
-import dana.djp.ticketsite.domain.Member;
+import dana.djp.lms.domain.Member;
+import dana.djp.util.ArrayList;
 
 
-public class MemberHandler {
+public class MemberHandler<E> {
 
-  ArrayList memberList;
+  ArrayList<Member> memberList;
   Scanner input;
 
 
@@ -16,13 +17,13 @@ public class MemberHandler {
 
   public MemberHandler(Scanner input) {
     this.input = input;
-    memberList = new ArrayList();
+    memberList = new ArrayList<>();
   }
 
 
   public MemberHandler(Scanner input, int capacity) {
     this.input = input;
-    memberList = new ArrayList(capacity);
+    memberList = new ArrayList<>(capacity);
   }
 
 
@@ -70,7 +71,7 @@ public class MemberHandler {
     int idx = input.nextInt();
     input.nextLine();
 
-    Member member = (Member) this.memberList.get(idx);
+    Member member = this.memberList.get(idx);
     if (member == null) {
       System.out.println("게시물 번호가 유효하지 않습니다.");
       return;

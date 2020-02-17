@@ -1,4 +1,4 @@
-package dana.djp.ticketsite.domain;
+package dana.djp.lms.domain;
 
 import java.sql.Date;
 

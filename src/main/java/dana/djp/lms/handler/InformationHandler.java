@@ -1,22 +1,23 @@
-package dana.djp.ticketsite.handler;
+package dana.djp.lms.handler;
 
 import java.sql.Date;
 import java.util.Scanner;
-import dana.djp.ticketsite.domain.Information;
+import dana.djp.lms.domain.Information;
+import dana.djp.util.ArrayList;
 
 public class InformationHandler {
 
-  ArrayList informationList;
+  ArrayList<Information> informationList;
   Scanner input;
 
   public InformationHandler(Scanner input) {
     this.input = input;
-    informationList = new ArrayList();
+    informationList = new ArrayList<>();
   }
 
   public InformationHandler(Scanner input, int capacity) {
     this.input = input;
-    informationList = new ArrayList(capacity);
+    informationList = new ArrayList<>(capacity);
   }
 
   public void addInformation() {
@@ -56,9 +57,11 @@ public class InformationHandler {
   }
 
   public void listInformation() {
-    Object[] arr = informationList.toArray();
-    for (Object obj : arr) {
-      Information infor = (Information) obj;
+    // InformationList의 배열에 보관된 값을 받을 배열을 준비한다.
+    Information[] arr = new Information[this.informationList.size()];
+
+    // toArray()에게 빈 배열을 넘겨서 복사 받는다.
+    for (Information infor : arr) {
       System.out.printf("%d, %s, %s, %s, %s ~ %s, %d, %s, %s\n", infor.getNo(), infor.getGenre(),
           infor.getName(), infor.getLocation(), infor.getStartDate(), infor.getEndDate(),
           infor.getRunnigTime(), infor.getAge(), infor.getIntroduce());
@@ -70,7 +73,7 @@ public class InformationHandler {
     int idx = input.nextInt();
     input.nextLine();
 
-    Information information = (Information) this.informationList.get(idx);
+    Information information = this.informationList.get(idx);
     if (information == null) {
       System.out.println("게시물 번호가 유효하지 않습니다.");
       return;
