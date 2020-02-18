@@ -6,7 +6,7 @@ import dana.djp.lms.domain.Member;
 import dana.djp.util.ArrayList;
 
 
-public class MemberHandler<E> {
+public class MemberHandler {
 
   ArrayList<Member> memberList;
   Scanner input;
@@ -58,7 +58,7 @@ public class MemberHandler<E> {
 
 
   public void listMember() {
-    Object[] arr = memberList.toArray();
+    Object[] arr = new Member[this.memberList.size()];
     for (Object obj : arr) {
       Member m = (Member) obj;
       System.out.printf("%d, %s, %s, %s, %s, %s, %s\n", m.getNo(), m.getReservationNumber(),

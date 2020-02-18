@@ -7,18 +7,18 @@ import dana.djp.util.ArrayList;
 
 public class ReviewHandler {
 
-  ArrayList reviewList;
+  ArrayList<Review> reviewList;
 
   Scanner input;
 
   public ReviewHandler(Scanner input) {
     this.input = input;
-    reviewList = new ArrayList();
+    reviewList = new ArrayList<>();
   }
 
   public ReviewHandler(Scanner input, int capacity) {
     this.input = input;
-    reviewList = new ArrayList(capacity);
+    reviewList = new ArrayList<>(capacity);
   }
 
 
@@ -49,20 +49,22 @@ public class ReviewHandler {
   }
 
   public void listReview() {
-    Object[] arr = reviewList.toArray();
-    for (Object obj : arr) {
-      Review r = (Review) obj;
+    Review[] arr = new Review[this.reviewList.size()];
+    this.reviewList.toArray(arr);
+
+    for (Review r : arr) {
+      // Review r = (Review) obj;
       System.out.printf("%d, %s, %s, %s\n", r.getNo(), r.getName(), r.getViewDate(), r.getTitle(),
           r.getContent(), r.getToday(), r.getViewCount());
     }
   }
 
   public void detailReview() {
-    System.out.println("번호? ");
+    System.out.print("번호? ");
     int idx = input.nextInt();
     input.nextLine();
 
-    Review review = (Review) this.reviewList.get(idx);
+    Review review = this.reviewList.get(idx);
     if (review == null) {
       System.out.println("게시물 번호가 유효하지 않습니다.");
       return;

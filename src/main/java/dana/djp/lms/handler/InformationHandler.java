@@ -61,6 +61,8 @@ public class InformationHandler {
     Information[] arr = new Information[this.informationList.size()];
 
     // toArray()에게 빈 배열을 넘겨서 복사 받는다.
+    this.informationList.toArray(arr);
+
     for (Information infor : arr) {
       System.out.printf("%d, %s, %s, %s, %s ~ %s, %d, %s, %s\n", infor.getNo(), infor.getGenre(),
           infor.getName(), infor.getLocation(), infor.getStartDate(), infor.getEndDate(),
@@ -70,12 +72,13 @@ public class InformationHandler {
 
   public void detailInformation() {
     System.out.print("게시물 인덱스? ");
-    int idx = input.nextInt();
-    input.nextLine();
+    int index = input.nextInt();
+    input.nextLine(); // 숫자 뒤의 남은 공백 제거
 
-    Information information = this.informationList.get(idx);
+    Information information = this.informationList.get(index);
+
     if (information == null) {
-      System.out.println("게시물 번호가 유효하지 않습니다.");
+      System.out.println("게시물 인덱스가 유효하지 않습니다.");
       return;
     }
 
